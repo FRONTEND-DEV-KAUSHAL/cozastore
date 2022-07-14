@@ -12,16 +12,16 @@ function Header(props) {
           Free shipping for standard order over $100
         </div>
         <div className="right-top-bar flex-w h-full">
-          <a href="assets/#" className="flex-c-m trans-04 p-lr-25">
+          <a href="#" className="flex-c-m trans-04 p-lr-25">
             Help &amp; FAQs
           </a>
-          <a href="assets/#" className="flex-c-m trans-04 p-lr-25">
+          <a href="#" className="flex-c-m trans-04 p-lr-25">
             My Account
           </a>
-          <a href="assets/#" className="flex-c-m trans-04 p-lr-25">
+          <a href="#" className="flex-c-m trans-04 p-lr-25">
             EN
           </a>
-          <a href="assets/#" className="flex-c-m trans-04 p-lr-25">
+          <a href="#" className="flex-c-m trans-04 p-lr-25">
             USD
           </a>
         </div>
@@ -30,7 +30,7 @@ function Header(props) {
     <div className="wrap-menu-desktop">
       <nav className="limiter-menu-desktop container">
         {/* Logo desktop */}		
-        <a href="assets/#" className="logo">
+        <a href="#" className="logo">
           <img src="assets/images/icons/logo-01.png" alt="IMG-LOGO" />
         </a>
         {/* Menu desktop */}
@@ -69,7 +69,7 @@ function Header(props) {
           <div className="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart" data-notify={2}>
             <i className="zmdi zmdi-shopping-cart" />
           </div>
-          <a href="assets/#" className="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti" data-notify={0}>
+          <a href="#" className="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti" data-notify={0}>
             <i className="zmdi zmdi-favorite-outline" />
           </a>
         </div>
@@ -90,7 +90,7 @@ function Header(props) {
       <div className="icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 icon-header-noti js-show-cart" data-notify={2}>
         <i className="zmdi zmdi-shopping-cart" />
       </div>
-      <a href="assets/#" className="dis-block icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 icon-header-noti" data-notify={0}>
+      <a href="#" className="dis-block icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 icon-header-noti" data-notify={0}>
         <i className="zmdi zmdi-favorite-outline" />
       </a>
     </div>
@@ -111,16 +111,16 @@ function Header(props) {
       </li>
       <li>
         <div className="right-top-bar flex-w h-full">
-          <a href="assets/#" className="flex-c-m p-lr-10 trans-04">
+          <a href="#" className="flex-c-m p-lr-10 trans-04">
             Help &amp; FAQs
           </a>
-          <a href="assets/#" className="flex-c-m p-lr-10 trans-04">
+          <a href="#" className="flex-c-m p-lr-10 trans-04">
             My Account
           </a>
-          <a href="assets/#" className="flex-c-m p-lr-10 trans-04">
+          <a href="#" className="flex-c-m p-lr-10 trans-04">
             EN
           </a>
-          <a href="assets/#" className="flex-c-m p-lr-10 trans-04">
+          <a href="#" className="flex-c-m p-lr-10 trans-04">
             USD
           </a>
         </div>
@@ -170,7 +170,6 @@ function Header(props) {
     </div>
   </div>
 </header>
-
     );
 }
 
