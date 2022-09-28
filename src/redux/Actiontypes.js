@@ -1,0 +1,2 @@
+export const SIGNIN_ACTION = "SIGNIN_ACTION"
+export const SIGNUP_ACTION = "SIGNUP_ACTION"

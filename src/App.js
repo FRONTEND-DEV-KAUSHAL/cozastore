@@ -1,3 +1,4 @@
+import { Provider } from 'react-redux';
 import { Route, Switch } from 'react-router-dom';
 import './App.css';
 import Footer from './components/footer/Footer';
@@ -8,9 +9,10 @@ import Blog from './container/blog/Blog';
 import Features from './container/features/Features';
 import Home from './container/home/Home';
 import Shop from './container/shop/Shop';
+import { store } from './redux/Store';
 function App() {
   return (
-    <>
+    <Provider store={store}>
     <Header/>
     <Switch>
     <Route path={"/"} exact component={Home}/>
@@ -21,7 +23,7 @@ function App() {
     <Route path={"/auth"} exact component={Auth}/>
     </Switch>
     <Footer/>
-    </>
+    </Provider>
   );
 }
 
