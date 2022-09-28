@@ -144,7 +144,7 @@ function Home(props) {
       </div>
     </div> */}
     <Swiper
-    modules={[Navigation, Pagination]}
+    modules={[]}
       spaceBetween={50}
       slidesPerView={1}
       onSlideChange={() => console.log('slide change')}
