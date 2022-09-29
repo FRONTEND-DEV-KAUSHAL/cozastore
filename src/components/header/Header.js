@@ -7,7 +7,6 @@ function Header(props) {
 
   const dispatch = useDispatch()
   const auth = useSelector(state => state.Auth);
-  console.log(auth);
   const handleLogout = () => {
     dispatch(logoutAction())
   }
@@ -28,9 +27,9 @@ function Header(props) {
               <a href="#" className="flex-c-m trans-04 p-lr-25">
                 My Account
               </a>
-              <a href="#" className="flex-c-m trans-04 p-lr-25">
-                EN
-              </a>
+              <NavLink to={'/admin'} className="flex-c-m trans-04 p-lr-25">
+                Admin
+              </NavLink>
               <a href="#" className="flex-c-m trans-04 p-lr-25">
                 USD
               </a>

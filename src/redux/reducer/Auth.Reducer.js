@@ -8,7 +8,6 @@ const initVal = {
 
 export const authReducer = (state=initVal, action) => {
     console.log(action.type, action.payload)
-    console.log(state);
     switch(action.type){
         case Actiontypes.LOGGEDIN_ACTION:
             return {

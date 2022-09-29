@@ -4,6 +4,7 @@ import './App.css';
 import Footer from './components/footer/Footer';
 import Header from './components/header/Header';
 import About from './container/about/About';
+import Admin from './container/admin/Catagory';
 import Auth from './container/auth/Auth';
 import Blog from './container/blog/Blog';
 import Features from './container/features/Features';
@@ -23,6 +24,7 @@ function App() {
     <Publicroute path={"/blog"} exact component={Blog}/>
     <Publicroute path={"/about"} exact component={About}/>
     <Publicroute path={"/auth"} exact restricted={true} component={Auth}/>
+    <Publicroute path={"/admin"} exact restricted={true} component={Admin}/>
     </Switch>
     <Footer/>
     </Provider>
