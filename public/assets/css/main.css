@@ -3329,3 +3329,10 @@ input.num-product::-webkit-inner-spin-button {
   }
 
 }
+
+.login-btn{
+  display: inline-block;
+  padding: 30px 50px;
+  background-color: #66a8a6;
+  border-radius: 30px;
+}

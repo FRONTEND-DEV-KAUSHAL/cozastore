@@ -2,7 +2,7 @@ import { Form, Formik, useFormik } from 'formik';
 import * as yup from 'yup';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { signinAction, signupAction } from '../../redux/action/Auth.Action';
+import { forgotAction, loginAction, signinAction, signupAction } from '../../redux/action/Auth.Action';
 
 function Auth(props) {
     const [user, setUser] = useState('login');
@@ -46,25 +46,32 @@ function Auth(props) {
     const handleSignup = (values) => {
         dispatch(signupAction(values));
     }
+    const handleLogin = (values) => {
+        console.log(values);
+        dispatch(signinAction(values));
+        // localStorage.setItem("cozastore","123")
+    }
+    const handleForgot = (values) => {
+        dispatch(forgotAction(values));
+    }
     const formik = useFormik({
         initialValues: setInitvalue,
         validationSchema: schema,
         enableReinitialize: true,
         onSubmit: values => {
             if (user === 'login' && forgot === false) {
-                dispatch(signinAction(values));
+                handleLogin(values);
             } else if (user === 'signup' && forgot === false) {
-                handleSignup(values)
+                handleSignup(values);
+            } else {
+                handleForgot(values);
             }
 
         },
     });
 
 
-    const { handleChange, handleBlur, handleSubmit, errors, touched, values } = formik;
-
-    console.log(forgot, user);
-    console.log(errors, touched);
+    const { handleChange, handleBlur, handleSubmit, errors, touched } = formik;
     return (
         <div>
             <div>
@@ -190,7 +197,7 @@ function Auth(props) {
                                             {
                                                 forgot ?
                                                     <>
-                                                        <a href='javascript:void(0)' onClick={() => { setUser('signup'); setForgot(false) }}>New On Cozastore? Signup</a>
+                                                        <a href='javascript:void(0)' onClick={() => { setUser('signup'); setForgot(false) ;}}>New On Cozastore? Signup</a>
                                                         <a href='#' className='p-lr-15' onClick={() => { setForgot(false); setUser('login') }}>Already Have An Account?</a>
                                                     </>
                                                     :
@@ -205,9 +212,21 @@ function Auth(props) {
                                                         </>
                                             }
                                         </div>
-                                        <button className="flex-c-m stext-101 cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer" type='submit'>
-                                            Submit
-                                        </button>
+                                       {
+                                        forgot ? 
+                                            <button className="flex-c-m stext-101 cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer" type='submit' onClick={() => handleForgot()}>
+                                                Send 
+                                            </button>
+                                        :
+                                        user === 'login' ? 
+                                            <button className="flex-c-m stext-101 cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer" type='submit' onClick={() => handleLogin()}>
+                                                login
+                                            </button>
+                                       :
+                                            <button className="flex-c-m stext-101 cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer" type='submit' onclick={() => handleSignup()}>
+                                                Sign up
+                                            </button>
+                                        }
                                     </Form>
                                 </Formik>
                             </div>

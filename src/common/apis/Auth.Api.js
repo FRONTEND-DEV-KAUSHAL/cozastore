@@ -1,6 +1,6 @@
-import { createUserWithEmailAndPassword, onAuthStateChanged, sendEmailVerification, signInWithEmailAndPassword } from "firebase/auth";
 
-
+import { getAuth, createUserWithEmailAndPassword, sendEmailVerification, onAuthStateChanged, signInWithEmailAndPassword, sendPasswordResetEmail, signOut } from "firebase/auth"; 
+import { auth } from '../../Firebase'
 export const signUpApi = (data) => {
     console.log("signUpApi", data);
 
@@ -10,7 +10,6 @@ export const signUpApi = (data) => {
             .then((userCredential) => {
                 const user = userCredential.user;
                 console.log(user);
-
                 onAuthStateChanged(auth, (user) => {
                     sendEmailVerification(auth.currentUser)
                         .then(() => {
@@ -19,18 +18,78 @@ export const signUpApi = (data) => {
                         .catch((e) => {
                             reject({ payload: e });
                         })
+
                 });
             })
-
             .catch((error) => {
                 const errorCode = error.code;
                 const errorMessage = error.message;
-
                 if (errorCode.localeCompare("auth/email-already-in-use") === 0) {
-                    reject({ payload: "email allready verified" });
+                    reject({ payload: "email id allready verified" });
+                } else {
+                    reject({ payload: error });
+                }
+            });
+    })
+}
+export const signInApi = (data)=>{
+    console.log("signInApi", data);
+
+    return new Promise((resolve, reject) => {
+        signInWithEmailAndPassword(auth, data.email, data.password)
+            .then((userCredential) => {
+                const user = userCredential.user;
+                console.log(user);
+                if (user.emailVerified) {
+                    resolve({payload :"signIn succesfull"});
+                } else {
+                    resolve({payload :"please varify your email."});
+                }
+            })
+            .catch((error) => {
+
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                
+                if (errorCode.localeCompare("auth/wrong-password") === 0) {
+                    reject({ payload: " password was wrong." });
+                } else if (errorCode.localeCompare("auth/user-not-found") === 0) {
+                    reject({ payload: "email was wrong." });
                 } else {
                     reject({ payload: errorCode });
                 }
+            });
+    })
+}
+
+export const forgotApi = (data) => {
+    console.log('forgotApi', data);
+    return new Promise((resolve, reject) => {
+        sendPasswordResetEmail(auth, data.email)
+            .then(() => {
+                resolve({ payload: "Please check your email." })
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                // reject({ payload: errorCode })
+                reject({ payload: " something went wrong " });
+
+            });
+    })
+}
+
+export const signOutApi = () => {
+    console.log("signOutApi");
+
+    return new Promise((resolve, reject) => {
+
+        signOut(auth)
+            .then(() => {
+                console.log("signOutApi successfully authenticated");
+                resolve({ payload: "Sign-out successfull." })
+            }).catch((error) => {
+                reject({ payload: " something wents Wrong." })
             });
     })
 }

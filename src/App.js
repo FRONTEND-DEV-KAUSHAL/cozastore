@@ -10,17 +10,19 @@ import Features from './container/features/Features';
 import Home from './container/home/Home';
 import Shop from './container/shop/Shop';
 import { store } from './redux/Store';
+import Privateroute from './route/PrivetRoute';
+import Publicroute from './route/PublicRoute';
 function App() {
   return (
     <Provider store={store}>
     <Header/>
     <Switch>
-    <Route path={"/"} exact component={Home}/>
-    <Route path={"/shop"} exact component={Shop}/>
-    <Route path={"/features"} exact component={Features}/>
-    <Route path={"/blog"} exact component={Blog}/>
-    <Route path={"/about"} exact component={About}/>
-    <Route path={"/auth"} exact component={Auth}/>
+    <Publicroute path={"/"} exact component={Home}/>
+    <Privateroute path={"/shop"} exact component={Shop}/>
+    <Publicroute path={"/features"} exact component={Features}/>
+    <Publicroute path={"/blog"} exact component={Blog}/>
+    <Publicroute path={"/about"} exact component={About}/>
+    <Publicroute path={"/auth"} exact restricted={true} component={Auth}/>
     </Switch>
     <Footer/>
     </Provider>

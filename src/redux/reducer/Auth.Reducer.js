@@ -1,4 +1,4 @@
-// import { SIGNIN_ACTION } from "../Actiontypes"
+import * as Actiontypes from "../Actiontypes"
 
 const initVal = {
     isLoading: false,
@@ -7,8 +7,23 @@ const initVal = {
 }
 
 export const authReducer = (state=initVal, action) => {
-    // console.log(action.type, action.payload)
+    console.log(action.type, action.payload)
+    console.log(state);
     switch(action.type){
+        case Actiontypes.LOGGEDIN_ACTION:
+            return {
+                ...state,
+                isLoading: false,
+                user: action.payload,
+                error: ''
+            }
+        case Actiontypes.LOGOUT_ACTION:
+            return {
+                ...state,
+                isLoading: false,
+                user: null,
+                error: ''
+            }
         default:
             return state 
     }
