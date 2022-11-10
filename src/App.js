@@ -24,7 +24,7 @@ function App() {
     <Publicroute path={"/blog"} exact component={Blog}/>
     <Publicroute path={"/about"} exact component={About}/>
     <Publicroute path={"/auth"} exact restricted={true} component={Auth}/>
-    <Publicroute path={"/admin"} exact restricted={true} component={Admin}/>
+    <Publicroute path={"/admin"} exact  component={Admin}/>
     </Switch>
     <Footer/>
     </Provider>

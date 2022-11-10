@@ -49,7 +49,7 @@ function Auth(props) {
     const handleLogin = (values) => {
         console.log(values);
         dispatch(signinAction(values));
-        // localStorage.setItem("cozastore","123")
+        localStorage.setItem("cozastore","123")
     }
     const handleForgot = (values) => {
         dispatch(forgotAction(values));
