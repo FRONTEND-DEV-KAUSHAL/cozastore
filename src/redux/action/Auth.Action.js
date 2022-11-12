@@ -14,7 +14,6 @@ export const forgotAction = (data) => (dispatch) => {
     console.log(data);
     dispatch({type:  Actiontypes.FORGOT_ACTION, payload: data})
 }
-
 export const logoutAction = ( ) => (dispatch) => { 
     dispatch({type: Actiontypes.LOGOUT_ACTION})
 }

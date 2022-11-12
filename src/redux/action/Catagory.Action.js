@@ -14,7 +14,7 @@ export const GetCategory = () => async (dispatch) => {
         querySnapshot.forEach((doc) => {
             data.push({ id: doc.id, ...doc.data() })
         });
-        console.log(data);
+        console.log("============================00000000000",data);
         dispatch({ type: ActionTypes.GETDATA_CATEGORY, payload: data })
 
     } catch (error) {

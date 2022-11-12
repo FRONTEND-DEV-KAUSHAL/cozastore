@@ -11,7 +11,7 @@ function About(props) {
   </section>	
   {/* Content page */}
   <section className="bg0 p-t-75 p-b-120">
-    <div className="container">
+    <div className="container">   
       <div className="row p-b-148">
         <div className="col-md-7 col-lg-8">
           <div className="p-t-7 p-r-85 p-r-15-lg p-r-0-md">
