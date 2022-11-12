@@ -36,8 +36,8 @@
     transform: rotate(360deg);
   }
 }
-.ignielHorizontal ul {
-  background-color: #673ab7; /* WBackground color */
+/* .ignielHorizontal ul {
+  background-color: #673ab7; /* WBackground color
   max-width: 100%;
   overflow-x: auto;
 }
@@ -77,4 +77,4 @@
     font-size: 12px;
     padding: 7px 10px;
   }
-}    
+}     */
